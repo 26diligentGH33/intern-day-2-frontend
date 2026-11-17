@@ -1,0 +1,4 @@
+# pnpm 11 把构建脚本白名单放在这个文件里(package.json 的 pnpm 字段已不再生效)。
+# esbuild 需要执行安装脚本才能装好平台二进制,Vite 的构建和 dev server 都依赖它。
+allowBuilds:
+  esbuild: true

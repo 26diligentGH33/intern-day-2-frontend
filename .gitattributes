@@ -1,0 +1,5 @@
+# 统一换行符为 LF:代码要在 Linux 容器里构建和运行,
+# 避免 Windows 的 CRLF 混进镜像导致脚本执行失败。
+* text=auto eol=lf
+*.png binary
+*.jpg binary
