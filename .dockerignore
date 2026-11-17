@@ -1,0 +1,14 @@
+.git
+.github
+.gitignore
+.devcontainer
+node_modules
+dist
+.vite
+*.log
+.env
+.env.local
+README.md
+Dockerfile
+compose.yaml
+.dockerignore

@@ -1,0 +1,16 @@
+# 前端独立启动。后端在另一个 Compose 项目里,不通过服务名互访 ——
+# 浏览器访问的是宿主机 5173 和 8000,两个 Compose 项目默认没有共享网络。
+name: intern-day-2-frontend
+
+services:
+  web:
+    build:
+      context: .
+    image: intern-day-2-frontend:local
+    container_name: intern-day-2-frontend-web
+    ports:
+      - "5173:5173"
+    environment:
+      # 浏览器从这里读到的地址必须是"宿主机能访问的地址",不是容器内的 localhost
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
+    restart: unless-stopped

@@ -1,0 +1,14 @@
+{
+  "name": "intern-day-2-frontend",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/workspaces/intern-day-2-frontend",
+  "postCreateCommand": "pnpm install",
+  "forwardPorts": [5173],
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint", "bradlc.vscode-tailwindcss"]
+    }
+  }
+}
