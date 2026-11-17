@@ -1,0 +1,493 @@
+:root {
+  --bg: #f4f5fa;
+  --surface: #ffffff;
+  --border: #e5e7ef;
+  --text: #16181d;
+  --text-muted: #6b7280;
+  --accent: #4f46e5;
+  --accent-strong: #4338ca;
+  --accent-soft: #eef0fe;
+  --danger: #b42318;
+  --danger-soft: #fef3f2;
+  --danger-border: #fecdca;
+  --radius-lg: 22px;
+  --radius-md: 12px;
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.04), 0 16px 40px -12px rgba(16, 24, 40, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1100px 520px at 50% -180px, #e6e8ff 0%, rgba(230, 232, 255, 0) 62%),
+    var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+code {
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: #f1f2f8;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+/* ---------- 按钮 ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease,
+    transform 0.16s ease;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 6px 16px -6px rgba(79, 70, 229, 0.7);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-strong);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: #f7f8fc;
+  border-color: #d7dae6;
+}
+
+/* ---------- 提示 ---------- */
+
+.alert {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+}
+
+.alert-error {
+  background: var(--danger-soft);
+  border: 1px solid var(--danger-border);
+  color: var(--danger);
+}
+
+/* ---------- 登录页 ---------- */
+
+.login-shell {
+  min-height: 100vh;
+  display: grid;
+  /* place-content 让网格轨道本身居中,place-items 只会居中轨道内的元素 */
+  place-content: center;
+  place-items: center;
+  padding: 40px 20px;
+}
+
+.login-card {
+  width: min(420px, 100%);
+  padding: 34px 32px 26px;
+  background: var(--surface);
+  border: 1px solid rgba(229, 231, 239, 0.9);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  animation: rise 0.32s ease-out both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-head {
+  margin-bottom: 22px;
+}
+
+.login-badge {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.login-sub {
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  font-size: 13.5px;
+}
+
+.login-form {
+  display: grid;
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.field input,
+.todo-form input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fbfbfe;
+  color: var(--text);
+  font: inherit;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+}
+
+.field input:focus,
+.todo-form input:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.14);
+}
+
+.field input:disabled,
+.todo-form input:disabled {
+  background: #f5f5f8;
+  color: #9ca3af;
+}
+
+.login-form .btn-primary {
+  margin-top: 4px;
+  padding: 12px;
+}
+
+.login-foot {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border);
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.login-foot p {
+  margin: 4px 0;
+}
+
+/* ---------- 功能页 ---------- */
+
+.app-shell {
+  width: min(680px, 100%);
+  margin: 0 auto;
+  padding: 56px 20px 40px;
+}
+
+.app-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.app-eyebrow {
+  margin: 0 0 6px;
+  color: var(--accent-strong);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.app-account {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.panel {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  background: var(--surface);
+  border: 1px solid rgba(229, 231, 239, 0.9);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.todo-form {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-form input {
+  flex: 1;
+}
+
+.todo-summary {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.todo-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #fcfcff;
+  transition: border-color 0.16s ease, background-color 0.16s ease;
+}
+
+.todo-item:hover {
+  border-color: #d6d9e6;
+}
+
+.todo-item.is-done {
+  background: #fafafc;
+}
+
+.todo-check {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.todo-check input {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.todo-title {
+  overflow-wrap: anywhere;
+}
+
+.todo-item.is-done .todo-title {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  text-decoration-color: #c1c5d4;
+}
+
+.todo-delete {
+  flex: none;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.16s ease, color 0.16s ease;
+}
+
+.todo-delete:hover:not(:disabled) {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.todo-delete:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- 空状态 / 骨架屏 ---------- */
+
+.state-block {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 34px 16px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.state-page {
+  width: min(380px, 100%);
+  margin: 18vh auto 0;
+}
+
+.state-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.state-desc {
+  margin: 0 0 10px;
+  color: var(--text-muted);
+  font-size: 13.5px;
+}
+
+.skeleton {
+  pointer-events: none;
+}
+
+.skeleton-box {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  border-radius: 4px;
+  background: #eef0f6;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.skeleton-line {
+  flex: 1;
+  height: 12px;
+  border-radius: 6px;
+  background: #eef0f6;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ---------- 启动屏 ---------- */
+
+.boot-screen {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.boot-dot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-soft);
+  border-top-color: var(--accent);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app-foot {
+  margin-top: 16px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  text-align: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 520px) {
+  .app-shell {
+    padding-top: 32px;
+  }
+
+  .app-header {
+    flex-direction: column;
+  }
+
+  .todo-form {
+    flex-direction: column;
+  }
+
+  .login-card {
+    padding: 26px 22px 20px;
+  }
+}
